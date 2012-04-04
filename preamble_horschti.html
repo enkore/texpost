@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<pre>
+\documentclass
+[
+	pdftex,
+	paper=A4,
+	pagesize=auto,
+	twoside=semi,
+	titlepage=true,
+	fontsize=12pt,
+	headlines=1.5,
+	headsepline=true,
+	chapterprefix=true,
+	parskip=never,
+	toc=bibliography,
+	toc=listof,
+	DIV=13
+]{scrbook}
+
+% ******************
+% *Zeichenkodierung*
+% ******************
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman,english]{babel}
+\selectlanguage{english}
+\usepackage
+[
+	fixlanguage,
+	noisbn,
+	noissn,
+]{babelbib}
+
+% *****************
+% *Sonstige Pakete*
+% *****************
+\usepackage
+[
+	detect-all,
+]{siunitx}
+
+\usepackage
+[
+	pdftex,
+]{graphicx}
+
+\usepackage
+[
+	pdftex,
+	table,
+]{xcolor}
+
+\usepackage{microtype}
+
+\usepackage{fixltx2e,background,subfig,multirow,amssymb,amsmath}
+
+% *********************************
+% *Eigene Definitionen und Befehle*
+% *********************************
+
+% Titel der Arbeit
+\newcommand{\titel}{Laz0rs`n`Shit}
+\newcommand{\meinname}{horscht(i)}
+
+% Abbildungsbreite und -hoehe
+%\renewcommand{\textfraction}{0.05}
+\newcommand{\figwidth}{0.65\textwidth}
+\newcommand{\subfigwidth}{0.35\textwidth}
+\newcommand{\plotwidth}{0.65\textwidth}
+\newcommand{\subplotwidth}{0.50\textwidth}
+
+% Tipphilfen
+\newcommand{\dimer}{$\rm{As_2}$ }
+\newcommand{\tetramer}{$\rm{As_4}$ }
+
+% ********************************************************
+% *Formate fuer die Seitendarstellung der gesamten Arbeit*
+% ********************************************************
+
+% Schriftfamilien einstellen
+\usepackage{mathpazo}
+\usepackage[scaled=.95]{helvet}
+\usepackage{courier}
+
+% Ueberschriften formatieren mit KOMA
+\setkomafont{chapter}{\Huge}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{paragraph}{\normalsize}
+\setkomafont{subparagraph}{\normalsize}
+\setkomafont{pageheadfoot}{\normalsize}
+\setkomafont{caption}{\small \slshape}
+\setkomafont{footnote}{10pt} % Footnote wird fuer Schriftgroesse im Appendix genutzt!
+
+% Kopf- und Fusszeile mit KOMA scrpage2
+\usepackage[automark]{scrpage2}
+\pagestyle{scrheadings}
+% Seitenstile scrheadings und plain komplett leeren
+\clearscrheadfoot
+% Umdefinition von chaptermarkformat, damit das Kapitelpräfix nicht in der Kopfzeile auftaucht.
+\renewcommand*{\chaptermarkformat}{\thechapter\autodot\enskip}
+\setheadsepline{.4pt}
+\lehead[]{\headmark}
+\lefoot[\pagemark]{\pagemark}
+\rohead[]{\headmark}
+\rofoot[\pagemark]{\pagemark}
+
+% Zeilenabstand
+\usepackage[onehalfspacing]{setspace}
+
+% Gleichungsbeschriftung
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+% Abbildungsbeschriftung
+% Komplizierte Abbildungsbeschriftung wegen Paket babel
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+
+% Tabellenbeschriftung
+% Komplizierte Tabellenbeschriftung wegen Paket babel
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+
+% Eingerahmte Kapitelueberschriften
+\newcommand*{\ORIGchapterheadstartvskip}{}
+\let\ORIGchapterheadstartvskip=\chapterheadstartvskip
+\renewcommand*{\chapterheadstartvskip}{
+	\ORIGchapterheadstartvskip
+	{
+		\setlength{\parskip}{0pt}
+		\noindent\rule[.3\baselineskip]{\linewidth}{1pt}\par
+	}
+} 
+
+\newcommand*{\ORIGchapterheadendvskip}{}
+\let\ORIGchapterheadendvskip=\chapterheadendvskip
+\renewcommand*{\chapterheadendvskip}{
+	{
+		\setlength{\parskip}{0pt}
+		\noindent\rule[.3\baselineskip]{\linewidth}{1pt}\par
+	}
+	\ORIGchapterheadendvskip
+}
+
+% PDF-Export
+\usepackage
+[
+	hyperfigures=true,
+	backref=false,
+	hyperindex=true,
+	bookmarks=true,
+	bookmarksnumbered=true,
+	bookmarksopen=false,
+	colorlinks=true,
+	citecolor=black,
+	linkcolor=black,
+	urlcolor=black,
+	filecolor=magenta,
+	pdfborder={0 0 0},
+	pdfstartview=FitV,
+	plainpages=false,
+	pdftitle={\titel},
+	pdfauthor={\meinname},
+	pdfsubject={PhD Thesis},
+	pdfproducer={text},
+	pdfkeywords={}
+]{hyperref}
+
+% ***********
+% *Sonstiges*
+% ***********
+
+% Hurenkinder / Schusterjungen
+\clubpenalty = 1000
+\widowpenalty = 1000
+\displaywidowpenalty = 1000
+
+% Nach Laden aller Pakete Satzspiegel neu berechnen
+\KOMAoptions{DIV=last}
+		</pre>
+	</div>
+	</body>
+</html>
